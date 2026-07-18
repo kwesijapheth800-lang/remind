@@ -1,7 +1,3 @@
-Absolutely. Since **Remind is still in development**, I would make the README feel professional without pretending the project already has features it doesn't have.
-
-Replace the contents of your current `README.md` with this:
-
 ````markdown
 # Remind
 
