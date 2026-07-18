@@ -1,0 +1,56 @@
+{
+    "manifest_version": 3,
+    "name": "REMIND",
+    "version": "1.0.0",
+    "description": "Capture, reflect, and master the lessons you consume.",
+    "permissions": [
+        "storage",
+        "contextMenus",
+        "activeTab",
+        "scripting",
+        "alarms",
+        "notifications"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "src/content/content.ts"
+            ]
+        }
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "action": {
+        "default_popup": "index.html",
+        "default_title": "Remind",
+        "default_icon": {
+            "16": "icon-16.png",
+            "32": "icon-32.png",
+            "48": "icon-48.png",
+            "128": "icon-128.png"
+        },
+        "background": {
+            "service_worker": "src/background/background.ts",
+            "type": "module"
+        },
+        "commands": {
+            "save-selection": {
+                "suggested_key": {
+                    "default": "Ctrl+Shift+R",
+                    "mac": "Command+Shift+R"
+                },
+                "description": "Save highlighted text to REMIND"
+            }
+        },
+        "icons": {
+            "16": "icon-16.png",
+            "32": "icon-32.png",
+            "48": "icon-48.png",
+            "128": "icon-128.png"
+        }
+    }
+}
