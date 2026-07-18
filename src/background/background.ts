@@ -5,10 +5,13 @@ import { suggestCategory } from '../utils/categorize';
 
 // --- CAPTURE: CONTEXT MENU ---
 chrome.runtime.onInstalled.addListener(() => {
-    chrome.contextMenus.create({
-        id: "save-to-remind",
-        title: "Save to REMIND",
-        contexts: ["selection"]
+    // Clear existing menus first to prevent "duplicate ID" errors when reloading
+    chrome.contextMenus.removeAll(() => {
+        chrome.contextMenus.create({
+            id: "save-to-remind",
+            title: "Save to REMIND",
+            contexts: ["selection"]
+        });
     });
 });
 
